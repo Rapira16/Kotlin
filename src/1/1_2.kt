@@ -1,3 +1,5 @@
+package `1`
+
 fun main() {
     var n: Int = readln().toInt()
     var c8 = n / 8

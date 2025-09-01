@@ -1,3 +1,7 @@
+package `1`
+
+import kotlin.text.iterator
+
 fun main() {
     var dna: String = readln()
     var cA: Int = 0
