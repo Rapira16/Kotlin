@@ -1,17 +1,21 @@
 package `2`
 
-fun countNums(nums: Array<Int>) : Map<Int, Int>{
-    var res = mutableMapOf<Int, Int>()
+fun countNums(nums: Array<Int>, n : Int) {
+    var count = 1
+    var cur = nums[0]
 
-    for (n in nums){
-        res[n] = 0
+    for (i in 1..n-1) {
+        if (nums[i] == cur) {
+            count++
+        } else {
+            println("$count $cur")
+            count = 1
+            cur = nums[i]
+        }
     }
 
-    for (m in nums){
-        res[m] = res[m]!! + 1
-    }
-
-    return res
+    // Выводим последний элемент
+    println("${count} ${cur}")
 }
 
 fun main(){
@@ -21,7 +25,5 @@ fun main(){
         var temp : Int = readln().toInt()
         inp += temp
     }
-    var res : Map<Int, Int> = countNums(inp)
-
-    println(res)
+    countNums(inp, n)
 }
