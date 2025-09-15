@@ -12,7 +12,7 @@ fun PasswordGenerator(len : Int) : String{
     var password = ""
 
     for (i in 0 until len){
-        var symbolIndex = (0 until charArray.size).random()
+        val symbolIndex = (0 until charArray.size).random()
         password += charArray[symbolIndex]
     }
 

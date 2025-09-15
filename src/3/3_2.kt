@@ -2,11 +2,11 @@ package `3`
 
 fun ToMorseCode(word : String) : String{
     var result = ""
-    var codes = arrayOf<String>(".-", "-...", ".--", "--.", "-..", ".", "...-", "--..", "..", ".---",
+    val codes = arrayOf<String>(".-", "-...", ".--", "--.", "-..", ".", "...-", "--..", "..", ".---",
         "-.-", ".-..", "--", "-.", "---", ".--.", ".-.", "...", "-", "..-", "..-.", "....", "-.-.", "---.", "----",
         "--.-", "--.--", "-.--", "-..-", "..-..", "..--", ".-.-")
     for (symbol in word){
-        var symbolCode = symbol.code - 'А'.code
+        val symbolCode = symbol.code - 'А'.code
         result += codes[symbolCode] + " "
     }
     return result
@@ -14,7 +14,7 @@ fun ToMorseCode(word : String) : String{
 
 fun main(){
     print("Введите слово для кодировки в код Морзе: ")
-    var word = readln()
+    val word = readln()
     println("Закодированное слово")
     print(ToMorseCode(word))
 }
