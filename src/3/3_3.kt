@@ -1,22 +1,24 @@
 package `3`
 
-fun PasswordGenerator(len : Int) : String{
-    val charArray = charArrayOf(
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        '_', '*', '-'
-    )
-    var password = ""
+fun PasswordGenerator(len: Int): String {
+    val up = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val low = "abcdefghijklmnopqrstuvwxyz"
+    val num = "0123456789"
+    val special = "_*-"
 
-    for (i in 0 until len){
-        val symbolIndex = (0 until charArray.size).random()
-        password += charArray[symbolIndex]
+    val allChars = up + low + num + special
+
+    var pass = arrayOf<Char>()
+    pass += up.random()
+    pass += low.random()
+    pass += num.random()
+    pass += special.random()
+    for (i in 4 until len) {
+        pass += allChars.random()
     }
+    pass.shuffle()
 
-    return password
+    return pass.joinToString("")
 }
 
 fun main(){
