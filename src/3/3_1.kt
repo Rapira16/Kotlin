@@ -2,6 +2,7 @@ package `3`
 
 fun game(){
     val computerGuess = (0..1000).random()
+    print(computerGuess)
     print("\nВведите число: ")
     var cur = readln().toInt()
     while (cur >= 0){
