@@ -19,7 +19,7 @@ class CreditCard(cardNumber: String, pinCode: Int, val creditLimit: Double) : Ba
     }
 
     // ненужная функция
-    fun getAvailableCredit(): Double { // убрал oprn. Излишняя вещь
+    fun getAvailableCredit(): Double { // убрал open. Излишняя вещь
         return creditLimit - debt
     }
 }
