@@ -1,3 +1,5 @@
+package `8`
+
 // ненужное поле
 abstract class BankCard(val cardNumber: String, var pinCode: Int) {
     abstract fun getBalance(): Double
