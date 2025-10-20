@@ -9,7 +9,7 @@ enum class Drink(
             return "Газировка"
         }
     },
-    COFFE(100, 80){
+    COFFEE(100, 80){
         override fun getName(): String {
             return "Кофе"
         }
@@ -47,7 +47,7 @@ enum class Drink(
 
 fun main(){
     Drink.ALCO.printInfo()
-    Drink.COFFE.printInfo()
+    Drink.COFFEE.printInfo()
     Drink.JUICE.printInfo()
     Drink.TEA.printInfo()
     Drink.SODA.printInfo()
