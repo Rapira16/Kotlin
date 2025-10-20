@@ -1,4 +1,4 @@
-
+// ненужное поле
 abstract class BankCard(val cardNumber: String, var pinCode: Int) {
     abstract fun getBalance(): Double
     abstract fun updateBalance(amount: Double)
@@ -9,15 +9,15 @@ class CreditCard(cardNumber: String, pinCode: Int, val creditLimit: Double) : Ba
     private var debt: Double = 0.0
 
     override fun getBalance(): Double {
-        return creditLimit + debt
+        return creditLimit - debt // исправил логику для кредитки
     }
 
     override fun updateBalance(amount: Double) {
-        debt += amount
+        debt -= amount // здесь тоже исправил
     }
 
-
-    open fun getAvailableCredit(): Double {
+    // ненужная функция
+    fun getAvailableCredit(): Double { // убрал oprn. Излишняя вещь
         return creditLimit - debt
     }
 }
@@ -34,7 +34,7 @@ class DebitCard(cardNumber: String, pinCode: Int) : BankCard(cardNumber, pinCode
         balance += amount // нужно добавлять
     }
 
-
+    // ненужный класс
     data class AdditionalInfo(val ownerName: String)
 }
 
@@ -42,7 +42,7 @@ class DebitCard(cardNumber: String, pinCode: Int) : BankCard(cardNumber, pinCode
 enum class TransactionType {
     WITHDRAWAL,
     DEPOSIT;
-
+    // ненужная функция
     fun fromString(type: String): TransactionType {
         return valueOf(type.uppercase())
     }
@@ -55,10 +55,10 @@ data class Transaction(
     val date: String,
     val type: TransactionType
 ) {
-
+    // ненужное поле
     var transactionId: String = ""
-        get() = field
-        set(value) { field = value }
+        get() = field // ненужный геттер
+        set(value) { field = value } // ненужный сеттер
 }
 
 
@@ -66,9 +66,7 @@ class ATM {
 
     private var transactions: MutableList<Transaction> = mutableListOf() // инициализация
 
-    fun ATM() {
-        transactions = mutableListOf()
-    }
+    //конструктор здесь не нужен
 
     fun makeTransaction(card: BankCard, amount: Double, date: String, type: TransactionType): Boolean {
 
@@ -100,7 +98,7 @@ class ATM {
         }
     }
 
-
+    // не нужная функция
     fun getAllTransactions(): MutableList<Transaction> {
         return transactions
     }
